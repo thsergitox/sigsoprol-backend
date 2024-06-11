@@ -19,10 +19,9 @@ public class Empleado {
     private String contrasenha;
     private String rol;
     private String estado;
-    private Date fecha;
 
-    @Column(name = "created_at", updatable = false, insertable = false)
-    private Instant createdAt;
+    @Column(name = "fechadeIngreso", updatable = false, insertable = false)
+    private Instant fechadeIngreso;
 
     @Column(name = "updated_at", updatable = false, insertable = false)
     private Instant updatedAt;

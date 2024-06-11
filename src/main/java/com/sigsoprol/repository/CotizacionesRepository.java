@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import com.sigsoprol.model.Cotizaciones;
 
 @Repository
-public interface CotizacionesRepositoy extends JpaRepository<Cotizaciones, Long>{
+public interface CotizacionesRepository extends JpaRepository<Cotizaciones, Long>{
 }

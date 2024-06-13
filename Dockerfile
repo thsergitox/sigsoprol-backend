@@ -7,9 +7,6 @@ WORKDIR /app
 # Copiar el archivo .jar de la aplicación al contenedor
 COPY target/241CC341SpringSigsoprolBackend-0.0.1-SNAPSHOT.jar app.jar
 
-# Copiar el archivo .env al contenedor
-COPY .env .env
-
 # Configurar las variables de entorno
 ENV SPRING_CONFIG_IMPORT=optional:file:.env[.properties]
 

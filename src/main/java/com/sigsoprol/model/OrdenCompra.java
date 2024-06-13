@@ -20,8 +20,7 @@ public class OrdenCompra {
     private Long id;
 
     private String url;
-    private Instant fechaenvio;
-    private Double precioTotal;
+    private Double precio_total;
 
     @ManyToOne
     @JoinColumn(name = "id_cotizacion", referencedColumnName = "id")
@@ -31,8 +30,8 @@ public class OrdenCompra {
     @JoinColumn(name = "id_proveedor", referencedColumnName = "id")
     private Proveedor proveedor;
 
-    @Column(name = "created_at", updatable = false, insertable = false)
-    private Instant createdAt;
+    @Column(name = "fechaenvio", updatable = false, insertable = false)
+    private Instant fechaenvio;
 
     @Column(name = "updated_at", updatable = false, insertable = false)
     private Instant updatedAt;

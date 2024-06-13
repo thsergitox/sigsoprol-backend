@@ -12,16 +12,14 @@ public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String estado;
-    private Date fecha;
 
     @ManyToOne
     @JoinColumn(name = "id_empleado", referencedColumnName = "id")
     private Empleado empleado;
 
-    @Column(name = "fecharecibimiento", updatable = false, insertable = false)
-    private Instant fecharecibiiento;
+    @Column(name = "fechacreacion", updatable = false, insertable = false)
+    private Instant fechacreacion;
 
     @Column(name = "updated_at", updatable = false, insertable = false)
     private Instant updatedAt;

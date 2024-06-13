@@ -16,8 +16,7 @@ public class Cotizaciones {
     private String url;
     private String estado;
     private Date fechapedido;
-    private Date fecharecibimiento;
-    private Double precioTotal;
+    private Double precio_total;
 
     @ManyToOne
     @JoinColumn(name = "id_pedido", referencedColumnName = "id")
@@ -27,8 +26,8 @@ public class Cotizaciones {
     @JoinColumn(name = "id_proveedor", referencedColumnName = "id")
     private Proveedor proveedor;
 
-    @Column(name = "created_at", updatable = false, insertable = false)
-    private Instant createdAt;
+    @Column(name = "fecharecibimiento", updatable = false, insertable = false)
+    private Instant fecharecibimiento;
 
     @Column(name = "updated_at", updatable = false, insertable = false)
     private Instant updatedAt;

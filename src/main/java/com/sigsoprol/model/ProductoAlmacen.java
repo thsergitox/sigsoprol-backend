@@ -9,7 +9,7 @@ import java.time.Instant;
 @Table(name = "productoalmacen")
 public class ProductoAlmacen {
     @Id
-    private Long idProducto;
+    private Long id;
 
     private Integer cantidad;
 

@@ -20,8 +20,8 @@ public class Pedido {
     @JoinColumn(name = "id_empleado", referencedColumnName = "id")
     private Empleado empleado;
 
-    @Column(name = "created_at", updatable = false, insertable = false)
-    private Instant createdAt;
+    @Column(name = "fecharecibimiento", updatable = false, insertable = false)
+    private Instant fecharecibiiento;
 
     @Column(name = "updated_at", updatable = false, insertable = false)
     private Instant updatedAt;

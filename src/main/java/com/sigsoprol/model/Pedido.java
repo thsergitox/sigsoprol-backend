@@ -32,10 +32,12 @@ public class Pedido {
     public Pedido() {
     }
 
-    public Pedido(Long id, String estado, Empleado empleado, Instant fechacreacion, Instant updatedAt) {
+    public Pedido(Long id, String estado, String name, String descripcion,Empleado empleado, Instant fechacreacion, Instant updatedAt) {
         this.id = id;
         this.estado = estado;
         this.empleado = empleado;
+        this.name = name;
+        this.descripcion = descripcion;
         this.fechacreacion = fechacreacion;
         this.updatedAt = updatedAt;
     }

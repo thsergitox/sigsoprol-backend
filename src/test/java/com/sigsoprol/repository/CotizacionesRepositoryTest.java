@@ -42,6 +42,8 @@ public class CotizacionesRepositoryTest {
 
         Pedido pedido = new Pedido();
         pedido.setEstado("Pendiente");
+        pedido.setDescripcion("Pedido Nuevo");
+        pedido.setName("Pedido Nuevecito");
         Pedido savedPedido = pedidoRepository.save(pedido);
 
         // Ahora creamos la cotización con las entidades relacionadas ya guardadas

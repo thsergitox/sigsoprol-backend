@@ -9,30 +9,47 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.Instant;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
-@Entity
-@Table(name = "ordencompra")
+@Entity // Indica que esta clase es una entidad JPA
+@Builder
+@Table(name = "ordencompra") // Especifica la tabla de la base de datos a la que está mapeada esta entidad
 public class OrdenCompra {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Id // Indica que este campo es la clave primaria
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Especifica que el valor de la clave primaria es autogenerado
     private Long id;
 
     private String url;
     private Double precio_total;
 
-    @ManyToOne
-    @JoinColumn(name = "id_cotizacion", referencedColumnName = "id")
+    @ManyToOne // Indica una relación muchos-a-uno con la entidad Cotizaciones
+    @JoinColumn(name = "id_cotizacion", referencedColumnName = "id") // Especifica la columna de unión para la relación
     private Cotizaciones cotizacion;
 
-    @ManyToOne
-    @JoinColumn(name = "id_proveedor", referencedColumnName = "id")
+    @ManyToOne // Indica una relación muchos-a-uno con la entidad Proveedor
+    @JoinColumn(name = "id_proveedor", referencedColumnName = "id") // Especifica la columna de unión para la relación
     private Proveedor proveedor;
 
-    @Column(name = "fechaenvio", updatable = false, insertable = false)
+    @Column(name = "fechaenvio", updatable = false, insertable = false) // Especifica la columna y sus propiedades
     private Instant fechaenvio;
 
-    @Column(name = "updated_at", updatable = false, insertable = false)
+    @Column(name = "updated_at", updatable = false, insertable = false) // Especifica la columna y sus propiedades
     private Instant updatedAt;
+
+    public OrdenCompra() {
+    }
+
+    public OrdenCompra(Long id, String url, Double precio_total, Cotizaciones cotizacion, Proveedor proveedor, Instant fechaenvio, Instant updatedAt) {
+        this.id = id;
+        this.url = url;
+        this.precio_total = precio_total;
+        this.cotizacion = cotizacion;
+        this.proveedor = proveedor;
+        this.fechaenvio = fechaenvio;
+        this.updatedAt = updatedAt;
+    }
+
 }

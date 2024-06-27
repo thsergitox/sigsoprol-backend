@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
-@RequestMapping("/api/ordencompra")
+@RestController // Indica que esta clase es un controlador REST
+@RequestMapping("/api/ordencompra") // Define la ruta base para todos los endpoints de este controlador
 public class OrdenCompraController {
 
-    @Autowired
+    @Autowired // Inyecta una instancia de OrdenCompraService
     private OrdenCompraService ordenCompraService;
 
+    // Endpoint para obtener todas las órdenes de compra
     @GetMapping("/all")
     public ResponseEntity<List<OrdenCompra>> getAllOrdenCompra() {
         try {
@@ -27,6 +28,7 @@ public class OrdenCompraController {
         }
     }
 
+    // Endpoint para obtener una orden de compra por su ID
     @GetMapping("/{id}")
     public ResponseEntity<OrdenCompra> getOrdenCompraById(@PathVariable Long id) {
         try {
@@ -38,6 +40,7 @@ public class OrdenCompraController {
         }
     }
 
+    // Endpoint para crear una nueva orden de compra
     @PostMapping("/create")
     public ResponseEntity<OrdenCompra> createOrdenCompra(@RequestBody OrdenCompra ordenCompra) {
         try {
@@ -48,6 +51,7 @@ public class OrdenCompraController {
         }
     }
 
+    // Endpoint para actualizar una orden de compra existente
     @PutMapping("/update/{id}")
     public ResponseEntity<OrdenCompra> updateOrdenCompra(@PathVariable Long id, @RequestBody OrdenCompra ordenCompra) {
         try {
@@ -64,6 +68,7 @@ public class OrdenCompraController {
         }
     }
 
+    // Endpoint para eliminar una orden de compra por su ID
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<HttpStatus> deleteOrdenCompra(@PathVariable Long id) {
         try {

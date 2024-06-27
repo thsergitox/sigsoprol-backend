@@ -12,6 +12,7 @@ import lombok.Builder;
 public class ProductoAlmacen {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Integer cantidad;

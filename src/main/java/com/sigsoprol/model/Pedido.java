@@ -13,6 +13,8 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String estado;
+    private String descripcion;
+    private String name;
 
     @ManyToOne
     @JoinColumn(name = "id_empleado", referencedColumnName = "id")

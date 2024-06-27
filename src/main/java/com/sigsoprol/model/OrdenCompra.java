@@ -9,12 +9,15 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.Instant;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Entity // Indica que esta clase es una entidad JPA
+@Builder
 @Table(name = "ordencompra") // Especifica la tabla de la base de datos a la que está mapeada esta entidad
 public class OrdenCompra {
+
     @Id // Indica que este campo es la clave primaria
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Especifica que el valor de la clave primaria es autogenerado
     private Long id;
@@ -35,4 +38,18 @@ public class OrdenCompra {
 
     @Column(name = "updated_at", updatable = false, insertable = false) // Especifica la columna y sus propiedades
     private Instant updatedAt;
+
+    public OrdenCompra() {
+    }
+
+    public OrdenCompra(Long id, String url, Double precio_total, Cotizaciones cotizacion, Proveedor proveedor, Instant fechaenvio, Instant updatedAt) {
+        this.id = id;
+        this.url = url;
+        this.precio_total = precio_total;
+        this.cotizacion = cotizacion;
+        this.proveedor = proveedor;
+        this.fechaenvio = fechaenvio;
+        this.updatedAt = updatedAt;
+    }
+
 }

@@ -3,9 +3,11 @@ package com.sigsoprol.model;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.time.Instant;
+import lombok.Builder;
 
 @Data
 @Entity
+@Builder
 @Table(name = "info_empresa")
 public class InfoEmpresa {
 
@@ -24,4 +26,19 @@ public class InfoEmpresa {
 
     @Column(name = "updated_at", updatable = false, insertable = false)
     private Instant updatedAt;
+
+    public InfoEmpresa() {
+    }
+
+    public InfoEmpresa(Long id, String nombre, String distrito, String direccion, String telefono, String correo, Instant createdAt, Instant updatedAt) {
+        this.id = id;
+        this.nombre = nombre;
+        this.distrito = distrito;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
+
 }

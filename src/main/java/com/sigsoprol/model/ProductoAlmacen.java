@@ -3,11 +3,14 @@ package com.sigsoprol.model;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.time.Instant;
+import lombok.Builder;
 
 @Data
 @Entity
+@Builder
 @Table(name = "productoalmacen")
 public class ProductoAlmacen {
+
     @Id
     private Long id;
 
@@ -22,4 +25,16 @@ public class ProductoAlmacen {
     @OneToOne
     @JoinColumn(name = "id_producto", referencedColumnName = "id")
     private Producto producto;
+
+    public ProductoAlmacen() {
+    }
+
+    public ProductoAlmacen(Long id, Integer cantidad, Instant createdAt, Instant updatedAt, Producto producto) {
+        this.id = id;
+        this.cantidad = cantidad;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.producto = producto;
+    }
+
 }
